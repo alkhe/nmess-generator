@@ -1,7 +1,7 @@
 {
-  "name": "nmess-generator",
-  "version": "0.2.1",
-  "description": "A custom generator for nmess.",
+  "name": "nmess",
+  "version": "0.2.2",
+  "description": "An intuitive and elegant boilerplate for the Node.js MESS webstack.",
   "main": "bin/nmess",
   "preferGlobal": true,
   "bin": {
@@ -9,15 +9,19 @@
   },
   "scripts": {},
   "keywords": [
-    "nmess",
-    "generator"
+    "mess",
+    "mongo",
+    "express",
+    "socket.io",
+    "stylus",
+    "jade",
+    "web"
   ],
   "author": "synchronous",
   "license": "MIT",
   "dependencies": {
     "commander": "^2.3.0",
     "download": "^1.0.3",
-    "fstack": "^0.2.27",
     "random-string": "^0.1.1"
   },
   "devDependencies": {},
@@ -28,5 +32,5 @@
   "bugs": {
     "url": "https://github.com/chronize/nmess-generator/issues"
   },
-  "homepage": "https://github.com/chronize/nmess-generator"
+  "homepage": "https://github.com/chronize/nmess"
 }
