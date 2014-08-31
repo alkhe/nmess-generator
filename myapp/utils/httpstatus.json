@@ -1,0 +1,177 @@
+{
+	"100": {
+		"code": 100,
+		"description": "Continue",
+		"message": "The server is waiting for the request body."
+	},
+	"101": {
+		"code": 101,
+		"description": "Switching Protocols",
+		"message": "The server is switching protocols."
+	},
+	"102": {
+		"code": 102,
+		"description": "Processing",
+		"message": "The server is processing the request."
+	},
+	"200": {
+		"code": 200,
+		"description": "OK",
+		"message": "The request was successful."
+	},
+	"201": {
+		"code": 201,
+		"description": "Created",
+		"message": "The resource has been created."
+	},
+	"202": {
+		"code": 202,
+		"description": "Accepted",
+		"message": "The server has accepted the request."
+	},
+	"203": {
+		"code": 203,
+		"description": "Non-Authoritative Information",
+		"message": "The server has accepted the request, but the information may be from a different source."
+	},
+	"204": {
+		"code": 204,
+		"description": "No Content",
+		"message": "The server has accepted the request, and no content exists."
+	},
+	"205": {
+		"code": 205,
+		"description": "Reset Content",
+		"message": "The server has accepted the request, and no content exists."
+	},
+	"206": {
+		"code": 206,
+		"description": "Partial Content",
+		"message": "A portion of the requested resource is being returned."
+	},
+	"207": {
+		"code": 207,
+		"description": "Multi-Status",
+		"message": "Multiple response codes were returned."
+	},
+	"208": {
+		"code": 208,
+		"description": "Already Reported",
+		"message": "The request purpose has already been processed."
+	},
+	"226": {
+		"code": 226,
+		"description": "IM Used",
+		"message": "The response for a previous instance has been returned."
+	},
+	"300": {
+		"code": 300,
+		"description": "Multiple Choices",
+		"message": "Multiple formats of the requested resource exist."
+	},
+	"301": {
+		"code": 301,
+		"description": "Moved Permanently",
+		"message": "The requested resource has been permanently moved."
+	},
+	"302": {
+		"code": 302,
+		"description": "Found",
+		"message": "The requested resource was found."
+	},
+	"303": {
+		"code": 303,
+		"description": "See Other",
+		"message": "The requested resource is available at another location."
+	},
+	"304": {
+		"code": 304,
+		"description": "Not Modified",
+		"message": "The requested resource has not been modified since the previous request."
+	},
+	"305": {
+		"code": 305,
+		"description": "Use Proxy",
+		"message": "The requested resource is available through a proxy."
+	},
+	"306": {
+		"code": 306,
+		"description": "Switch Proxy",
+		"message": "The requested resource should be accessed through a proxy."
+	},
+	"307": {
+		"code": 307,
+		"description": "Temporary Redirect",
+		"message": "The requested resource is temporarily available at another location."
+	},
+	"308": {
+		"code": 308,
+		"description": "Permanent Redirect",
+		"message": "The requested resource should be accessed from another location."
+	},
+	"400": {
+		"code": 400,
+		"description": "Bad Request",
+		"message": "The request could not be processed."
+	},
+	"401": {
+		"code": 401,
+		"description": "Unauthorized",
+		"message": "The request was not authenticated."
+	},
+	"402": {
+		"code": 402,
+		"description": "Payment Required",
+		"message": "The requested resource requires a payment."
+	},
+	"403": {
+		"code": 403,
+		"description": "Forbidden",
+		"message": "The request was not sufficiently authorized."
+	},
+	"404": {
+		"code": 404,
+		"description": "Not Found",
+		"message": "The requested resource could not be found."
+	},
+	"405": {
+		"code": 405,
+		"description": "Method Not Allowed",
+		"message": "The request method was not allowed."
+	},
+	"406": {
+		"code": 406,
+		"description": "Not Acceptable",
+		"message": "The resource could not be represented in the requested format."
+	},
+	"407": {
+		"code": 407,
+		"description": "Proxy Authentication Required",
+		"message": "An authentication by proxy is required to access this resource."
+	},
+	"408": {
+		"code": 408,
+		"description": "Request Timeout",
+		"message": "The client response timed out."
+	},
+	"409": {
+		"code": 409,
+		"description": "Conflict",
+		"message": "The request contained conflicting information."
+	},
+	"410": {
+		"code": 410,
+		"description": "Gone",
+		"message": "The requested resource will no longer be available."
+	},
+	"411": {
+		"code": 411,
+		"description": "Length Required",
+		"message": "The request did not specify content length."
+	},
+	"412": {
+		"code": 412,
+		"description": "Precondition Failed",
+		"message": "The server did not meet one of the preconditions that was requested."
+	}
+}

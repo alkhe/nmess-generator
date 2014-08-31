@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+var	port = process.env.PORT || 3000,
+	http = require('../mess')(port, 'Ezn1z6bS'),
+	dbdriver = require('../utils/dbdriver')('myapp', function() {
+		http.listen(port, function() {
+
+		});
+	});

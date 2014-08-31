@@ -36,15 +36,15 @@ var wwwpath = path.join(options.directory, 'bin/www'),
 
 	fs.writeFileSync(wwwpath, fs.readFileSync(wwwpath, {
 		encoding: 'utf8'
-	}).replace('{{session-secret}}', options.secret).replace('{{localdb}}', options.database));
+	}).replace(/\{\{session-secret\}\}/g, options.secret).replace(/\{\{localdb\}\}/g, options.database));
 
 	fs.writeFileSync(dbresetpath, fs.readFileSync(dbresetpath, {
 		encoding: 'utf8'
-	}).replace('{{localdb}}', options.database));
+	}).replace(/\{\{localdb\}\}/g, options.database));
 
 	fs.writeFileSync(basepath, fs.readFileSync(basepath, {
 		encoding: 'utf8'
-	}).replace('{{application-name}}', options.name));
+	}).replace(/\{\{application-name\}\}/g, options.name));
 
 	fs.rename(path.join(cssdir, '{{application-name}}.styl'), path.join(cssdir, options.name + '.styl'));
 

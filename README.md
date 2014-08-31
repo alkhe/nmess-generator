@@ -73,4 +73,4 @@ myapp/
 ```
 
 ###Deploy
-`cd ./myapp && npm install && npm start`
+`cd ./myapp && npm install && nodemon`

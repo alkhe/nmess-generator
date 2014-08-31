@@ -1,0 +1,22 @@
+{
+  "name": "nmess",
+  "version": "0.0.1",
+  "description": "nmess",
+  "main": "bin/www",
+  "scripts": {
+    "start": "./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.6.7",
+    "compression": "^1.0.11",
+    "cookie-parser": "^1.3.2",
+    "debug": "^1.0.4",
+    "express": "^4.8.5",
+    "express-session": "^1.7.6",
+    "jade": "^1.5.0",
+    "mongoose": "^3.8.15",
+    "morgan": "^1.2.3",
+    "socket.io": "^1.0.6",
+    "stylus": "^0.48.0"
+  }
+}
