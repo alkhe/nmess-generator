@@ -1,11 +1,11 @@
 {
   "name": "nmess",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "An intuitive and elegant boilerplate for the Node.js MESS webstack.",
-  "main": "bin/nmess",
+  "main": "./bin/nmess",
   "preferGlobal": true,
   "bin": {
-    "express": "./bin/express"
+    "nmess": "./bin/nmess"
   },
   "scripts": {},
   "keywords": [
