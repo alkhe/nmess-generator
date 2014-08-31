@@ -1,6 +1,6 @@
 {
   "name": "nmess",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "An intuitive and elegant boilerplate for the Node.js MESS webstack.",
   "main": "./bin/nmess",
   "preferGlobal": true,
@@ -24,6 +24,9 @@
     "download": "^1.0.3",
     "random-string": "^0.1.1"
   },
+  "files": [
+    "bin/",
+  ],
   "devDependencies": {},
   "repository": {
     "type": "git",
