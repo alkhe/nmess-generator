@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/nmess.svg?style=flat-square)](https://npmjs.org/chronize/fstack)
 [![license](http://img.shields.io/npm/l/nmess.svg?style=flat-square)](https://npmjs.org/chronize/fstack)
-[![downloads](http://img.shields.io/npm/dd/nmess.svg?style=flat-square)](https://npmjs.org/chronize/fstack)
+[![downloads](http://img.shields.io/npm/dm/nmess.svg?style=flat-square)](https://npmjs.org/chronize/fstack)
 
 `nmess` generates an modern and developer-friendly skeleton application that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language. `nmess` is designed so that the developer can get right down to coding, instead of rewriting preparation code for every new project.
 
