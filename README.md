@@ -20,10 +20,10 @@ nmess -h
     -b --database [localdb]       Local database name (application-name)
 ```
 
-`nmess myapp`
+`nmess ./myapp`
 
 ```
-nmess myapp
+nmess ./myapp
 Node MESS Application generated with:
 application-name: myapp
 directory:        myapp
@@ -61,4 +61,4 @@ myapp/
 	README.md
 ```
 
-`cd myapp && npm install && sudo nodemon`
+`cd ./myapp && npm install && npm start`
