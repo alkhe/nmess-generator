@@ -1,8 +1,11 @@
-nmess
-===============
+#nmess
 
 An intuitive and elegant boilerplate for the Node.js MESS webstack.
 
+##Installation
+> sudo npm install -g nmess
+
+##Generator
 ```
 nmess -h
 
