@@ -1,6 +1,6 @@
 {
   "name": "nmess",
-  "version": "0.2.6",
+  "version": "0.2.8",
   "description": "An intuitive and elegant boilerplate for the Node.js MESS webstack.",
   "main": "./bin/nmess",
   "preferGlobal": true,
@@ -35,5 +35,5 @@
   "bugs": {
     "url": "https://github.com/chronize/nmess-generator/issues"
   },
-  "homepage": "https://github.com/chronize/nmess"
+  "homepage": "https://github.com/chronize/nmess-generator"
 }
