@@ -1,0 +1,55 @@
+var cli = require('commander'),
+	rands = require('random-string'),
+	down = require('download'),
+	fs = require('fs'),
+	path = require('path');
+
+cli
+	.version('0.0.5')
+	.usage('[options] <application-name>')
+	.option('-d --directory [directory]', 'Application directory (application-name)')
+	.option('-s --secret [session-secret]', 'Session secret (random)')
+	.option('-b --database [localdb]', 'Local database name (application-name)')
+	.parse(process.argv);
+
+var options = {
+	name: cli.args[0] || (function() {
+		throw new Error('Name not specified.')
+	})()
+};
+
+options.directory = cli.directory || options.name;
+options.secret = cli.secret || rands();
+options.database = cli.database || options.name;
+
+var wwwpath = path.join(options.directory, 'bin/www'),
+	dbresetpath = path.join(options.directory, 'utils/dbreset.js'),
+	basepath = path.join(options.directory, 'views/base.jade'),
+	cssdir = path.join(options.directory, 'public/css/');
+
+(new down).get('https://github.com/chronize/node-mess/archive/master.zip', options.directory, {
+	extract: true,
+	strip: 1
+}).run(function() {
+	
+	fs.writeFileSync(wwwpath, fs.readFileSync(wwwpath, {
+		encoding: 'utf8'
+	}).replace('{{session-secret}}', options.secret).replace('{{localdb}}', options.database));
+
+	fs.writeFileSync(dbresetpath, fs.readFileSync(dbresetpath, {
+		encoding: 'utf8'
+	}).replace('{{localdb}}', options.database));
+
+	fs.writeFileSync(basepath, fs.readFileSync(basepath, {
+		encoding: 'utf8'
+	}).replace('{{application-name}}', options.name));
+
+	fs.rename(path.join(cssdir, '{{application-name}}.styl'), path.join(cssdir, options.name + '.styl'));
+
+	console.log('Node MESS Application generated with:')
+	console.log('application-name: ' + options.name);
+	console.log('directory:        ' + options.directory);
+	console.log('session-secret:   ' + options.secret);
+	console.log('localdb:          ' + options.database);
+
+});

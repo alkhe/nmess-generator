@@ -1,0 +1,32 @@
+{
+  "name": "nmess-generator",
+  "version": "0.2.1",
+  "description": "A custom generator for nmess.",
+  "main": "bin/nmess",
+  "preferGlobal": true,
+  "bin": {
+    "express": "./bin/express"
+  },
+  "scripts": {},
+  "keywords": [
+    "nmess",
+    "generator"
+  ],
+  "author": "synchronous",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.3.0",
+    "download": "^1.0.3",
+    "fstack": "^0.2.27",
+    "random-string": "^0.1.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chronize/nmess-generator"
+  },
+  "bugs": {
+    "url": "https://github.com/chronize/nmess-generator/issues"
+  },
+  "homepage": "https://github.com/chronize/nmess-generator"
+}
