@@ -1,14 +1,14 @@
 #nmess
 
-nmess generates an intuitive and developer-friendly skeleton application that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language.
+`nmess` generates an modern and developer-friendly skeleton application that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language. `nmess` is designed so that the developer can get right down to coding, instead of rewriting preparation code for every new project.
 
-Various server utilities and functionalities are included, such as a REST API, Socket.IO inclusion, Database drivers, and HTTP codes.
+Various server utilities and components are included, such as a configurable REST API, Socket.IO connection, database drivers, and HTTP response codes.
 
 The Jade templates are organized in a simple but conjugable hierarchy.
 
 The actual skeleton code may be found at https://github.com/chronize/nmess.
 
-nmess was inspired by express-generator and node-boilerplate.
+`nmess` was inspired by `express-generator` and `node-boilerplate`.
 
 ##Installation
 `sudo npm install -g nmess`
