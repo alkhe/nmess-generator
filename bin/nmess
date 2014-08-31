@@ -7,7 +7,7 @@ var cli = require('commander'),
 	path = require('path');
 
 cli
-	.version('0.0.5')
+	.version('0.2.13')
 	.usage('[options] <application-name>')
 	.option('-d --directory [directory]', 'Application directory (application-name)')
 	.option('-s --secret [session-secret]', 'Session secret (random)')
@@ -27,7 +27,9 @@ options.database = cli.database || options.name;
 var wwwpath = path.join(options.directory, 'bin/www'),
 	dbresetpath = path.join(options.directory, 'utils/dbreset.js'),
 	basepath = path.join(options.directory, 'views/base.jade'),
-	cssdir = path.join(options.directory, 'public/css/');
+	cssdir = path.join(options.directory, 'public/css/'),
+	packagepath = path.join(options.directory, 'package.json'),
+	readmepath = path.join(options.directory, 'README.md');
 
 (new down).get('https://github.com/chronize/node-mess/archive/master.zip', options.directory, {
 	extract: true,
@@ -47,6 +49,14 @@ var wwwpath = path.join(options.directory, 'bin/www'),
 	}).replace(/\{\{application-name\}\}/g, options.name));
 
 	fs.rename(path.join(cssdir, '{{application-name}}.styl'), path.join(cssdir, options.name + '.styl'));
+
+	fs.writeFileSync(packagepath, fs.readFileSync(packagepath, {
+		encoding: 'utf8'
+	}).replace(/\{\{application-name\}\}/g, options.name));
+
+	fs.writeFileSync(readmepath, fs.readFileSync(readmepath, {
+		encoding: 'utf8'
+	}).replace(/\{\{application-name\}\}/g, options.name));
 
 	console.log('Node MESS Application generated with:')
 	console.log('application-name: ' + options.name);
