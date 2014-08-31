@@ -6,8 +6,11 @@ An intuitive and elegant boilerplate for the Node.js MESS webstack.
 `sudo npm install -g nmess`
 
 ##Generator
+
+###Help
+`nmess -h`
+
 ```
-nmess -h
 
   Usage: nmess [options] <application-name>
 
@@ -20,10 +23,10 @@ nmess -h
     -b --database [localdb]       Local database name (application-name)
 ```
 
+###Usage
 `nmess ./myapp`
 
 ```
-nmess ./myapp
 Node MESS Application generated with:
 application-name: myapp
 directory:        myapp
@@ -61,4 +64,5 @@ myapp/
 	README.md
 ```
 
+###Deploy
 `cd ./myapp && npm install && npm start`
