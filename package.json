@@ -8,7 +8,7 @@
     "nmess": "./bin/nmess"
   },
   "scripts": {
-      "test": "./bin/nmess"
+      "test": "./bin/nmess myapp"
   },
   "keywords": [
     "mess",
