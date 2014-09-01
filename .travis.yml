@@ -6,6 +6,7 @@ deploy:
   provider: npm
   email: sort@programmer.net
   api_key:
-    secure: hpTo33apMrurij4gLyoJtqYif6ReD3d69hO8vZKSTFNqQzE2xuUdeA6pMCr1pzxgMlUlPNV90S5+vEWXpKYG2APefdooyTJa1Bx6DXIx2KoSm1jHrrpwfapex/q+D4V24JIa5Xb1ucybM+oYn7lz7SXCKp2rky2cm3PhtrGyXGc=
+    secure: DN7DyNGfswNR0fBLW+BcnLIhpCzoWGc1Rl72ffII6EgwPEb2z3IRSE5a+Rgz6HGA9AMAy5IRT04NQ7BdhG2u3IqxI4cPo+iSPJAYX3eRt3+tYeb6A3Cn4J3v66n/+zgRvVlYot2D2+hIltFrmi4RnblvEHptiXxLQAurZoBvID8=
   on:
+    tags: true
     repo: chronize/nmess-generator
