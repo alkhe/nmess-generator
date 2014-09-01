@@ -8,7 +8,7 @@ var cli = require('commander'),
 	path = require('path');
 
 cli
-	.version('0.2.16')
+	.version('0.2.17')
 	.usage('[options] <application-name>')
 	.option('-d --directory [directory]', 'Application directory (application-name)')
 	.option('-s --secret [session-secret]', 'Session secret (random)')
