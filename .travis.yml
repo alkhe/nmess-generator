@@ -8,5 +8,4 @@ deploy:
   api_key:
     secure: DN7DyNGfswNR0fBLW+BcnLIhpCzoWGc1Rl72ffII6EgwPEb2z3IRSE5a+Rgz6HGA9AMAy5IRT04NQ7BdhG2u3IqxI4cPo+iSPJAYX3eRt3+tYeb6A3Cn4J3v66n/+zgRvVlYot2D2+hIltFrmi4RnblvEHptiXxLQAurZoBvID8=
   on:
-    tags: true
     repo: chronize/nmess-generator
