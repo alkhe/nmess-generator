@@ -7,7 +7,9 @@
   "bin": {
     "nmess": "./bin/nmess"
   },
-  "scripts": {},
+  "scripts": {
+      "test": "./bin/nmess"
+  },
   "keywords": [
     "mess",
     "mongo",
