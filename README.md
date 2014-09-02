@@ -5,11 +5,13 @@
 [![downloads](http://img.shields.io/npm/dm/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
 [![license](http://img.shields.io/npm/l/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
 
-`nmess` generates an modern and developer-friendly skeleton application that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language. `nmess` is designed so that the developer can get right down to coding, instead of rewriting preparation code for every new project.
+`nmess` generates an modern and developer-friendly skeleton application that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language.
 
-Various server utilities and components are included, such as a configurable REST API, Socket.IO connection, database drivers, and HTTP response codes.
+`nmess` is designed so that the developer can get right down to productive coding, instead of rewriting preparation code for every new project.
 
-The Jade templates are organized in a simple but conjugable hierarchy.
+`nmess` prepares various server utilities and components such as a configurable REST API, Socket.IO connection, database controllers, and HTTP response codes, as well as organizing source files in an extensible and logical manner. The Jade templates are organized in a simple but conjugable hierarchy.
+
+The MESS stack can easily be extended into the MEAN stack, by including Angular files into a generated application.
 
 The actual skeleton code may be found at https://github.com/chronize/nmess.
 

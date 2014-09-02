@@ -1,6 +1,6 @@
 {
   "name": "nmess",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "description": "An intuitive and elegant boilerplate for the Node.js MESS webstack.",
   "main": "./bin/nmess",
   "preferGlobal": true,
@@ -12,12 +12,12 @@
   },
   "keywords": [
     "mess",
+    "mean",
     "mongo",
     "express",
     "socket.io",
     "stylus",
-    "jade",
-    "web"
+    "jade"
   ],
   "author": "synchronous",
   "license": "MIT",
