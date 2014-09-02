@@ -39,13 +39,13 @@ The actual skeleton code may be found at https://github.com/chronize/nmess.
 ```
 
 ###Usage
-`nmess ./myapp`
+`nmess myapp`
 
 ```
 Node MESS Application generated with:
 application-name: myapp
 directory:        myapp
-session-secret:   4qWf1HER
+session-secret:   s1kTm5VN
 localdb:          myapp
 ```
 
