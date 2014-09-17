@@ -17,6 +17,8 @@ The actual skeleton code may be found at https://github.com/chronize/nmess.
 
 `nmess` was inspired by `express-generator` and `node-boilerplate`.
 
+`nmess` will soon support specifying MVC frameworks and dynamically adding database models and controllers.
+
 ##Installation
 `sudo npm install -g nmess`
 
@@ -61,6 +63,8 @@ myapp/
 			index.js
 			jquery.min.js
 			socket.io.js
+        favicon.ico
+        robots.txt
 	routes/
 		api.js
 		index.js
@@ -74,6 +78,7 @@ myapp/
 		base.jade
 		error.jade
 		index.jade
+    config.json
 	mess.js
 	package.json
 	README.md

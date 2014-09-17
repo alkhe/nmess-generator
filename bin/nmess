@@ -25,14 +25,6 @@ options.directory = cli.directory || options.name;
 options.secret = cli.secret || rands();
 options.database = cli.database || options.name;
 
-var wwwpath = path.join(options.directory, 'bin/www'),
-	dbresetpath = path.join(options.directory, 'utils/dbreset.js'),
-	basepath = path.join(options.directory, 'views/base.jade'),
-	cssdir = path.join(options.directory, 'public/css/'),
-	packagepath = path.join(options.directory, 'package.json'),
-	readmepath = path.join(options.directory, 'README.md');
-
-
 (new down).get('https://github.com/chronize/node-mess/archive/master.zip', options.directory, {
 	extract: true,
 	strip: 1
