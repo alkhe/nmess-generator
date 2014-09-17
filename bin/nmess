@@ -5,10 +5,11 @@ var cli = require('commander'),
 	down = require('download'),
 	replace = require('replace'),
 	fs = require('fs'),
-	path = require('path');
+	path = require('path'),
+	pkg = require('../package');
 
 cli
-	.version('0.2.19')
+	.version(pkg.version)
 	.usage('[options] <application-name>')
 	.option('-d --directory [directory]', 'Application directory (application-name)')
 	.option('-s --secret [session-secret]', 'Session secret (random)')
