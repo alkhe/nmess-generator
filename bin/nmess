@@ -11,9 +11,9 @@ var cli = require('commander'),
 cli
 	.version(pkg.version)
 	.usage('[options] <application-name>')
-	.option('-d --directory [directory]', 'Application directory (application-name)')
-	.option('-s --secret [session-secret]', 'Session secret (random)')
-	.option('-b --database [localdb]', 'Local database name (application-name)')
+	.option('-d, --directory [directory]', 'Application directory (application-name)')
+	.option('-s, --secret [session-secret]', 'Session secret (random)')
+	.option('-b, --database [localdb]', 'Local database name (application-name)')
 	.parse(process.argv);
 
 var options = {
