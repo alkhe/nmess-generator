@@ -64,6 +64,7 @@ myapp/
 			jquery.min.js
 			socket.io.js
         tpl/
+            view.jade
         favicon.ico
         robots.txt
 	routes/
