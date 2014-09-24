@@ -63,6 +63,7 @@ myapp/
 			index.js
 			jquery.min.js
 			socket.io.js
+        tpl/
         favicon.ico
         robots.txt
 	routes/
@@ -80,6 +81,7 @@ myapp/
 		index.jade
     config.json
 	mess.js
+    nodemon.json
 	package.json
 	README.md
 ```
