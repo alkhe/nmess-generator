@@ -64,7 +64,7 @@ myapp/
 			jquery.min.js
 			socket.io.js
         tpl/
-            view.jade
+            templates.jade
         favicon.ico
         robots.txt
 	routes/
@@ -80,8 +80,8 @@ myapp/
 		base.jade
 		error.jade
 		index.jade
+	app.js
     config.json
-	mess.js
     nodemon.json
 	package.json
 	README.md
