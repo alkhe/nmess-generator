@@ -89,3 +89,16 @@ myapp/
 
 ###Deploy
 `cd ./myapp && npm install && nodemon`
+
+###Packages
+    body-parser
+    compression
+    cookie-parser
+    debug
+    express
+    express-session
+    jade
+    mongoose
+    morgan
+    socket.io
+    stylus
