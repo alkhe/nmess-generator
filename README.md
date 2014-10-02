@@ -17,8 +17,6 @@ The actual skeleton code may be found at https://github.com/chronize/nmess.
 
 `nmess` was inspired by `express-generator` and `node-boilerplate`.
 
-`nmess` will soon support specifying MVC frameworks and dynamically adding database models and controllers.
-
 ##Installation
 `sudo npm install -g nmess`
 
@@ -28,7 +26,6 @@ The actual skeleton code may be found at https://github.com/chronize/nmess.
 `nmess -h`
 
 ```
-
   Usage: nmess [options] <application-name>
 
   Options:
@@ -102,3 +99,9 @@ myapp/
     morgan
     socket.io
     stylus
+
+###Todo
+- Specify MVC frameworks
+- Dynamically add database models and controllers
+- Specify packages to include
+- Specify development paradigm
