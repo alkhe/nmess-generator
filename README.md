@@ -1,6 +1,6 @@
 #nmess
 
-[![travis-ci](http://img.shields.io/travis/chronize/nmess-generator.svg?style=flat-square)](https://npmjs.org/package/nmess)
+[![travis-ci](http://img.shields.io/travis/edge/nmess-generator.svg?style=flat-square)](https://npmjs.org/package/nmess)
 [![npm version](https://img.shields.io/npm/v/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
 [![downloads](http://img.shields.io/npm/dm/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
 [![license](http://img.shields.io/npm/l/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
