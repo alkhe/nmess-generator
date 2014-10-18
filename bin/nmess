@@ -10,10 +10,10 @@ var cli = require('commander'),
 
 cli
 	.version(pkg.version)
-	.usage('[options] <application-name>')
-	.option('-d, --directory [directory]', 'Application directory (application-name)')
-	.option('-s, --secret [session-secret]', 'Session secret (random)')
-	.option('-b, --database [localdb]', 'Local database name (application-name)')
+	.usage('[options] <name>')
+	.option('-d, --directory [directory]', 'application directory (name)')
+	.option('-s, --secret [secret]', 'session secret (random)')
+	.option('-b, --database [db]', 'local database name (name)')
 	.parse(process.argv);
 
 var options = {
@@ -58,14 +58,14 @@ options.database = cli.database || options.name;
 
 	};
 
-	populateTemplates(/\{\{application-name\}\}/g, options.name);
-	populateTemplates(/\{\{session-secret\}\}/g, options.secret);
-	populateTemplates(/\{\{localdb\}\}/g, options.database);
+	populateTemplates(/__name__/g, options.name);
+	populateTemplates(/__secret__/g, options.secret);
+	populateTemplates(/__db__/g, options.database);
 
 	console.log('Node MESS Application generated with:')
-	console.log('application-name: ' + options.name);
-	console.log('directory:        ' + options.directory);
-	console.log('session-secret:   ' + options.secret);
-	console.log('localdb:          ' + options.database);
+	console.log('name:      ' + options.name);
+	console.log('directory: ' + options.directory);
+	console.log('secret:    ' + options.secret);
+	console.log('db:        ' + options.database);
 
 });

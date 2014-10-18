@@ -9,13 +9,13 @@
 
 `nmess` is designed so that the developer can get right down to productive coding, instead of rewriting preparation code for every new project.
 
-`nmess` prepares various server utilities and components such as a configurable REST API, Socket.IO connection, database controllers, and HTTP response codes, as well as organizing source files in an extensible and logical manner. The Jade templates are organized in a simple but conjugable hierarchy.
+`nmess` prepares various server utilities and components such as a configurable REST API, Socket.IO connection, database controllers, and HTTP response codes, and organizes source files in an extensible and logical manner. The Jade templates are organized in a simple but conjugable hierarchy.
 
 The MESS stack can easily be extended into the MEAN stack, by including Angular files into a generated application.
 
-The actual skeleton code may be found at https://github.com/chronize/nmess.
+The actual skeleton code may be found at https://github.com/edge/nmess.
 
-`nmess` was inspired by `express-generator` and `node-boilerplate`.
+`nmess` was inspired by and intends to replace `express-generator` and `node-boilerplate`, both projects with great initiatives but undermaintained.
 
 ##Installation
 `sudo npm install -g nmess`
@@ -26,15 +26,15 @@ The actual skeleton code may be found at https://github.com/chronize/nmess.
 `nmess -h`
 
 ```
-  Usage: nmess [options] <application-name>
+  Usage: nmess [options] <name>
 
   Options:
 
-    -h, --help                    output usage information
-    -V, --version                 output the version number
-    -d --directory [directory]    Application directory (application-name)
-    -s --secret [session-secret]  Session secret (random)
-    -b --database [localdb]       Local database name (application-name)
+    -h, --help                   output usage information
+    -V, --version                output the version number
+    -d, --directory [directory]  application directory (name)
+    -s, --secret [secret]        session secret (random)
+    -b, --database [db]          local database name (name)
 ```
 
 ###Usage
@@ -42,37 +42,38 @@ The actual skeleton code may be found at https://github.com/chronize/nmess.
 
 ```
 Node MESS Application generated with:
-application-name: myapp
-directory:        myapp
-session-secret:   s1kTm5VN
-localdb:          myapp
+name:      myapp
+directory: myapp
+secret:    tLQqdSso
+db:        myapp
 ```
 
 ```
 myapp/
 	bin/
 		www
+    db/
+        control.js
+        init.js
+        model.js
 	public/
 		css/
 			error.styl
 			myapp.styl
 		js/
 			index.js
+            jade.min.js
 			jquery.min.js
 			socket.io.js
         tpl/
-            templates.jade
+            view.jade
         favicon.ico
         robots.txt
 	routes/
 		api.js
 		index.js
 	utils/
-		controller.js
-		dbdriver.js
-		dbmodel.js
-		dbreset.js
-		httpstatus.json
+		httpres.json
 	views/
 		base.jade
 		error.jade
@@ -90,8 +91,6 @@ myapp/
 ###Packages
     body-parser
     compression
-    cookie-parser
-    debug
     express
     express-session
     jade
