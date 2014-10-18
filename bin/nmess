@@ -26,7 +26,7 @@ options.directory = cli.directory || options.name;
 options.secret = cli.secret || rands();
 options.database = cli.database || options.name;
 
-(new down).get('https://github.com/chronize/node-mess/archive/master.zip', options.directory, {
+(new down()).get('https://github.com/edge/nmess/archive/master.zip', options.directory, {
 	extract: true,
 	strip: 1
 }).run(function() {
