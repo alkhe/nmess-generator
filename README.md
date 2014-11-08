@@ -20,6 +20,7 @@ The actual skeleton code may be found at https://github.com/edge/nmess.
 * [Generator](#generator)
     * [Help](#help)
     * [Usage](#usage)
+    * [Visual](#visual)
 * [Deployment](#deployment)
 * [Dependencies](#dependencies)
 * [Todo](#todo)
@@ -101,6 +102,10 @@ myapp/
 	README.md
     router.js
 ```
+
+### Visual
+[![install](http://i.j2.io/7KUL.png)](http://i.j2.io/7KUL.png)
+[![initial](http://i.j2.io/FX1K.png)](http://i.j2.io/FX1K.png)
 
 ### Deployment
 #### Production
