@@ -113,3 +113,6 @@ myapp/
 - Dynamically add database models and controllers
 - Specify packages to include
 - Specify development paradigm
+- Gulpify scripts
+- Document each file
+- Auto-build on initialization
