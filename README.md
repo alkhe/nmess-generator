@@ -5,13 +5,9 @@
 [![downloads](http://img.shields.io/npm/dm/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
 [![license](http://img.shields.io/npm/l/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
 
-`nmess` generates an modern and developer-friendly skeleton application that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language.
+`nmess` generates an modern and developer-friendly skeleton application that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language. It is designed so that the developer can get right down to productive coding, instead of rewriting preparation code and build systems for every new project. The MESS stack can easily be extended into the MEAN stack, by including Angular files into a generated application.
 
-`nmess` is designed so that the developer can get right down to productive coding, instead of rewriting preparation code for every new project.
-
-`nmess` prepares various server utilities and components such as a configurable REST API, Socket.IO connection, database controllers, and HTTP response codes, and organizes source files in an extensible and logical manner. The Jade templates are organized in a simple but conjugable hierarchy.
-
-The MESS stack can easily be extended into the MEAN stack, by including Angular files into a generated application.
+`nmess` prepares various server utilities and components such as a configurable REST API, Socket.IO connection, database controllers, Gulp build system, and HTTP response codes, and organizes source files in an extensible and logical manner.
 
 The actual skeleton code may be found at https://github.com/edge/nmess.
 
@@ -52,21 +48,22 @@ db:        myapp
 myapp/
 	bin/
 		www
+    client/
+        css/
+            error.styl
+            myapp.styl
+        tpl/
+            fragment.jade
     db/
         control.js
         init.js
         model.js
 	public/
 		css/
-			error.styl
-			myapp.styl
 		js/
 			index.js
-            jade.min.js
-			jquery.min.js
-			socket.io.js
-        tpl/
-            view.jade
+			jquery.js
+			socket.js
         favicon.ico
         robots.txt
 	routes/
@@ -80,24 +77,36 @@ myapp/
 		index.jade
 	app.js
     config.json
+    gulpfile.js
     nodemon.json
 	package.json
 	README.md
+    router.js
 ```
 
 ###Deploy
-`cd ./myapp && npm install && nodemon`
+####Production
+`cd ./myapp && npm install && npm start`
+####Development
+`cd ./myapp && npm install && npm run dev`
 
-###Packages
-    body-parser
-    compression
-    express
-    express-session
-    jade
-    mongoose
-    morgan
+###Dependencies
+####Production
     socket.io
-    stylus
+    morgan
+    mongoose
+    jade
+    express-session
+    express
+    compression
+    body-parser
+####Development
+    gulp-uglifyjs
+    gulp-watch
+    lazypipe
+    templatizer
+    gulp-stylus
+    gulp
 
 ###Todo
 - Specify MVC frameworks
