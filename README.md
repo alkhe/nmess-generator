@@ -1,4 +1,4 @@
-#nmess
+# nmess
 
 [![travis-ci](http://img.shields.io/travis/edge/nmess-generator.svg?style=flat-square)](https://travis-ci.org/edge/nmess-generator)
 [![npm version](https://img.shields.io/npm/v/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
@@ -15,12 +15,21 @@ The actual skeleton code may be found at https://github.com/edge/nmess.
 
 `nmess` was inspired by and intends to replace `express-generator` and `node-boilerplate`, both projects with great initiatives but undermaintained.
 
-##Installation
+## Table of Contents
+* [Installation](#installation)
+* [Generator](#generator)
+    * [Help](#help)
+    * [Usage](#usage)
+* [Deployment](#deployment)
+* [Dependencies](#dependencies)
+* [Todo](#todo)
+
+## Installation
 `sudo npm install -g nmess`
 
-##Generator
+## Generator
 
-###Help
+### Help
 `nmess -h`
 
 ```
@@ -35,7 +44,7 @@ The actual skeleton code may be found at https://github.com/edge/nmess.
     -b, --database [db]          local database name (name)
 ```
 
-###Usage
+### Usage
 `nmess myapp`
 
 ```
@@ -52,7 +61,7 @@ db:        myapp
 
 ```
 myapp/
-	bin/
+    bin/
 		www
     client/
         css/
@@ -66,10 +75,13 @@ myapp/
         model.js
 	public/
 		css/
+            error.css
+            myapp.css
 		js/
 			index.js
 			jquery.js
 			socket.js
+            templates.js
         favicon.ico
         robots.txt
 	routes/
@@ -90,14 +102,14 @@ myapp/
     router.js
 ```
 
-###Deploy
-####Production
+### Deployment
+#### Production
 `cd ./myapp && npm start`
-####Development
+#### Development
 `cd ./myapp && npm run dev`
 
-###Dependencies
-####Production
+### Dependencies
+#### Production
     socket.io
     morgan
     mongoose
@@ -106,20 +118,20 @@ myapp/
     express
     compression
     body-parser
-####Development
+#### Development
     gulp-uglifyjs
     gulp-watch
     lazypipe
     templatizer
     gulp-stylus
     gulp
-####Global
+#### Global
     gulp
     nodemon
-####Machine
+#### Machine
     mongodb
 
-###Todo
+### Todo
 - Specify MVC frameworks
 - Dynamically add database models and controllers
 - Specify packages to include
