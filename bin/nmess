@@ -6,7 +6,8 @@ var cli = require('commander'),
 	replace = require('replace'),
 	fs = require('fs'),
 	path = require('path'),
-	pkg = require('../package');
+	pkg = require('../package'),
+	exec = require('child_process').exec;
 
 cli
 	.version(pkg.version)
@@ -26,10 +27,13 @@ options.directory = cli.directory || options.name;
 options.secret = cli.secret || rands();
 options.database = cli.database || options.name;
 
+console.log('Downloading...');
 (new down()).get('https://github.com/edge/nmess/archive/master.zip', options.directory, {
 	extract: true,
 	strip: 1
 }).run(function() {
+
+	console.log('Populating...');
 
 	var renameRecursive = function(dir, find, replacewith) {
 		var children = fs.readdirSync(dir),
@@ -43,29 +47,45 @@ options.database = cli.database || options.name;
 				renameRecursive(replacecurrent, find, replacewith);
 			}
 		}
-	};
-
-	var populateTemplates = function(find, replacewith) {
-		renameRecursive(options.directory, find, replacewith);
-
-		replace({
-			regex: find,
-			replacement: replacewith,
-			paths: [options.directory],
-			recursive: true,
-			silent: true
-		});
-
-	};
+	},
+		populateTemplates = function(find, replacewith) {
+			renameRecursive(options.directory, find, replacewith);
+			replace({
+				regex: find,
+				replacement: replacewith,
+				paths: [options.directory],
+				recursive: true,
+				silent: true
+			});
+		};
 
 	populateTemplates(/__name__/g, options.name);
 	populateTemplates(/__secret__/g, options.secret);
 	populateTemplates(/__db__/g, options.database);
 
-	console.log('Node MESS Application generated with:')
-	console.log('name:      ' + options.name);
-	console.log('directory: ' + options.directory);
-	console.log('secret:    ' + options.secret);
-	console.log('db:        ' + options.database);
+	console.log('Installing...');
+
+	exec('cd ' + options.directory + ' && npm install', function(err) {
+		if (err) {
+			console.log('Error: ' + arguments);
+		}
+		else {
+
+			console.log('Building...');
+
+			exec('cd ' + options.directory + ' && gulp compile', function(err) {
+				if (err) {
+					console.log('Error: ' + arguments);
+				}
+				else {
+					console.log('Node MESS Application generated with:')
+					console.log('name:      ' + options.name);
+					console.log('directory: ' + options.directory);
+					console.log('secret:    ' + options.secret);
+					console.log('db:        ' + options.database);
+				}
+			});
+		}
+	});
 
 });

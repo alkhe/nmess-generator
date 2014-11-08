@@ -37,10 +37,14 @@ The actual skeleton code may be found at https://github.com/edge/nmess.
 `nmess myapp`
 
 ```
+Downloading...
+Populating...
+Installing...
+Building...
 Node MESS Application generated with:
 name:      myapp
 directory: myapp
-secret:    tLQqdSso
+secret:    4B1zTDRv
 db:        myapp
 ```
 
@@ -86,9 +90,9 @@ myapp/
 
 ###Deploy
 ####Production
-`cd ./myapp && npm install && npm start`
+`cd ./myapp && npm start`
 ####Development
-`cd ./myapp && npm install && npm run dev`
+`cd ./myapp && npm run dev`
 
 ###Dependencies
 ####Production
@@ -107,6 +111,11 @@ myapp/
     templatizer
     gulp-stylus
     gulp
+####Global
+    gulp
+    nodemon
+####Machine
+    mongodb
 
 ###Todo
 - Specify MVC frameworks
@@ -115,4 +124,4 @@ myapp/
 - Specify development paradigm
 - Gulpify scripts
 - Document each file
-- Auto-build on initialization
+- Locally cached versions of nmess
