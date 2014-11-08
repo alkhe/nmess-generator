@@ -1,13 +1,15 @@
 #nmess
 
-[![travis-ci](http://img.shields.io/travis/edge/nmess-generator.svg?style=flat-square)](https://npmjs.org/package/nmess)
+[![travis-ci](http://img.shields.io/travis/edge/nmess-generator.svg?style=flat-square)](https://travis-ci.org/edge/nmess-generator)
 [![npm version](https://img.shields.io/npm/v/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
 [![downloads](http://img.shields.io/npm/dm/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
-[![license](http://img.shields.io/npm/l/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
+[![license](http://img.shields.io/npm/l/nmess.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
-`nmess` generates an modern and developer-friendly skeleton application that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language. It is designed so that the developer can get right down to productive coding, instead of rewriting preparation code and build systems for every new project. The MESS stack can easily be extended into the MEAN stack, by including Angular files into a generated application.
+`nmess` is a modern and developer-friendly skeleton application generator that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language. It is designed so that the developer can immediately start being productive, instead of writing preparation code and build systems for every new project. The MESS stack can easily be extended into the MEAN stack, by including Angular files into a generated application.
 
-`nmess` prepares various server utilities and components such as a configurable REST API, Socket.IO connection, database controllers, Gulp build system, and HTTP response codes, and organizes source files in an extensible and logical manner.
+The generator prepares various server utilities and components such as a configurable REST API, Socket.IO connection, database controllers, Gulp build system, and HTTP response codes, and organizes source files in an extensible and logical manner.
+
+The included Gulp build system automatically builds client assets such as .styl sheets and Jade MVC templates. Using a build system instead of middleware for client assets improves reliability and response time for all requests.
 
 The actual skeleton code may be found at https://github.com/edge/nmess.
 
