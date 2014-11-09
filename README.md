@@ -117,29 +117,37 @@ myapp/
 ### Dependencies
 #### Production
 These modules are required to run the server.
-    body-parser
-    compression
-    express
-    express-session
-    jade
-    mongoose
-    morgan
-    socket.io
+```
+body-parser
+compression
+express
+express-session
+jade
+mongoose
+morgan
+socket.io
+```
 #### Development
 These modules are required to compile the templates and stylesheets.
-    gulp
-    gulp-stylus
-    gulp-uglifyjs
-    gulp-watch
-    lazypipe
-    templatizer
+```
+gulp
+gulp-stylus
+gulp-uglifyjs
+gulp-watch
+lazypipe
+templatizer
+```
 #### Global
 These modules are required to run the application in development mode.
-    gulp
-    nodemon
+```
+gulp
+nodemon
+```
 #### Machine
 These technologies are required to run the server, but features using them disengage gracefully if missing.
-    mongodb
+```
+mongodb
+```
 
 ### Documentation
 ```
