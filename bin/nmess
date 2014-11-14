@@ -67,7 +67,7 @@ console.log('Downloading...');
 
 	exec('cd ' + options.directory + ' && npm install', function(err) {
 		if (err) {
-			console.log('Error: ' + arguments);
+			console.log('Error: ' + JSON.stringify(arguments, null, 4));
 		}
 		else {
 
@@ -75,7 +75,7 @@ console.log('Downloading...');
 
 			exec('cd ' + options.directory + ' && gulp compile', function(err) {
 				if (err) {
-					console.log('Error: ' + arguments);
+					console.log('Error: ' + JSON.stringify(arguments, null, 4));
 				}
 				else {
 					console.log('Node MESS Application generated with:')
