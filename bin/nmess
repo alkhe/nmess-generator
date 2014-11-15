@@ -17,13 +17,14 @@ cli
 	.option('-b, --database [db]', 'local database name (name)')
 	.parse(process.argv);
 
-var options = {
-	name: cli.args[0] || (function() {
-		throw new Error('Name not specified.')
-	})()
-};
+var rawname = cli.args[0].replace(/\/$/, ''),
+	options = {
+		name: path.basename(rawname) || (function() {
+			throw new Error('Name not specified.')
+		})()
+	};
 
-options.directory = cli.directory || options.name;
+options.directory = path.join(path.dirname(rawname), cli.directory || options.name);
 options.secret = cli.secret || rands();
 options.database = cli.database || options.name;
 
