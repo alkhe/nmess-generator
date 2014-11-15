@@ -82,8 +82,10 @@ myapp/
             error.css
             myapp.css
         js/
+            index.js
             jquery.js
             socket.js
+            templates.js
         favicon.ico
         robots.txt
     routes/
@@ -95,6 +97,7 @@ myapp/
         base.jade
         error.jade
         index.jade
+    .gitignore
     app.js
     config.json
     gulpfile.js
@@ -132,7 +135,7 @@ These modules are required to compile the templates and stylesheets.
 ```
 gulp
 gulp-stylus
-gulp-uglifyjs
+gulp-uglify
 gulp-watch
 lazypipe
 templatizer
@@ -191,6 +194,7 @@ __name__/                   // d.f. all application files
         base.jade           // base template
         error.jade          // error page template
         index.jade          // index page template
+    .gitignore              // .gitignore
     app.js                  // m.f. main application interface
     config.json             // application configuration
     gulpfile.js             // m.f. gulp build system
