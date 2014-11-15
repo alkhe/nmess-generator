@@ -71,9 +71,6 @@ myapp/
             myapp.styl
         js/
             index.js
-            jquery.js
-            socket.js
-            templates.js
         tpl/
             fragment.jade
     db/
@@ -85,10 +82,8 @@ myapp/
             error.css
             myapp.css
         js/
-            index.js
             jquery.js
             socket.js
-            templates.js
         favicon.ico
         robots.txt
     routes/
@@ -170,8 +165,6 @@ __name__/                   // d.f. all application files
             __name__.styl   // main stylesheet
         js/                 // d.f. client scripts
             index.js        // index page script
-            jquery.js       // jQuery 1.11.1, minified
-            socket.js       // Socket.IO 1.2.0, minified
         tpl/                // d.f. client MVC templates
             fragment.jade   // MVC template, rename to a specific client control
     db/                     // d.f. database design
@@ -184,8 +177,8 @@ __name__/                   // d.f. all application files
             __name__.css    // compiled from client/css/__name__.styl
         js/                 // d.f. client scripts
             index.js        // compiled from client/js/index.js
-            jquery.js       // compiled from client/js/jquery.js
-            socket.js       // compiled from client/js/socket.io.js
+            jquery.js       // jQuery 1.11.1, minified
+            socket.js       // Socket.IO 1.2.0, minified
             templates.js    // compiled from all templates in client/tpl
         favicon.ico         // n.js tab icon
         robots.txt          // robots.txt
