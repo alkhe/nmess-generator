@@ -81,6 +81,8 @@ myapp/
         css/
             error.css
             myapp.css
+        font/
+            OpenSans.ttf
         js/
             index.js
             jquery.js
@@ -178,6 +180,8 @@ __name__/                   // d.f. all application files
         css/                // d.f. files compiled from client/css/
             error.css       // compiled from client/css/error.styl
             __name__.css    // compiled from client/css/__name__.styl
+        font/               // d.f. client fonts
+            OpenSans.ttf    // Open Sans font
         js/                 // d.f. client scripts
             index.js        // compiled from client/js/index.js
             jquery.js       // jQuery 1.11.1, minified
