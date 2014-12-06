@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var cli = require('commander'),
-	rands = require('random-string'),
+	uuid = require('uuid'),
 	down = require('download'),
 	replace = require('replace'),
 	fs = require('fs'),
@@ -12,9 +12,9 @@ var cli = require('commander'),
 cli
 	.version(pkg.version)
 	.usage('[options] <name>')
-	.option('-d, --directory [directory]', 'application directory (name)')
-	.option('-s, --secret [secret]', 'session secret (random)')
-	.option('-b, --database [db]', 'local database name (name)')
+	.option('-d --directory [directory]', 'Application directory [name]')
+	.option('-s --secret [secret]', 'Session secret [uuid.v4()]')
+	.option('-b --database [db]', 'Local database path [\'localhost/\' + name]')
 	.parse(process.argv);
 
 var rawname = cli.args[0].replace(/\/$/, ''),
@@ -25,8 +25,8 @@ var rawname = cli.args[0].replace(/\/$/, ''),
 	};
 
 options.directory = path.join(path.dirname(rawname), cli.directory || options.name);
-options.secret = cli.secret || rands();
-options.database = cli.database || options.name;
+options.secret = cli.secret || uuid.v4();
+options.database = cli.database || 'localhost/' + options.name;
 
 console.log('Downloading...');
 (new down()).get('https://github.com/edge/nmess/archive/master.zip', options.directory, {

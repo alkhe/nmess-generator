@@ -1,6 +1,6 @@
 {
   "name": "nmess",
-  "version": "0.5.3",
+  "version": "0.5.7",
   "description": "An intuitive and elegant boilerplate for the Node.js MESS webstack.",
   "main": "./bin/nmess",
   "preferGlobal": true,
@@ -24,8 +24,8 @@
   "dependencies": {
     "commander": "^2.5.0",
     "download": "^1.0.7",
-    "random-string": "^0.1.1",
-    "replace": "^0.2.10"
+    "replace": "^0.2.10",
+    "uuid": "^2.0.1"
   },
   "files": [
     "bin/"
