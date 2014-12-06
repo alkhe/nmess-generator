@@ -12,9 +12,9 @@ var cli = require('commander'),
 cli
 	.version(pkg.version)
 	.usage('[options] <name>')
-	.option('-d --directory [directory]', 'Application directory [name]')
-	.option('-s --secret [secret]', 'Session secret [uuid.v4()]')
-	.option('-b --database [db]', 'Local database path [\'localhost/\' + name]')
+	.option('-d, --directory [directory]', 'Application directory [name]')
+	.option('-s, --secret [secret]', 'Session secret [uuid.v4()]')
+	.option('-b, --database [db]', 'Local database path [\'localhost/\' + name]')
 	.parse(process.argv);
 
 var rawname = cli.args[0].replace(/\/$/, ''),

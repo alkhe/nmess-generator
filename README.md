@@ -11,6 +11,8 @@ The generator prepares various server utilities and components such as a configu
 
 The included gulp build system automatically builds client assets such as .styl sheets and Jade MVC templates. Using a build system instead of middleware for client assets improves reliability and response time for all requests.
 
+`nmess` is great for single page applications, hybrid servers, and web services.
+
 The actual skeleton code may be found at https://github.com/edge/nmess.
 
 `nmess` was inspired by and intends to replace `express-generator` and `node-boilerplate`, both projects with great initiatives but undermaintained.
@@ -39,11 +41,11 @@ The actual skeleton code may be found at https://github.com/edge/nmess.
 
   Options:
 
-    -h, --help                   output usage information
-    -V, --version                output the version number
-    -d, --directory [directory]  application directory (name)
-    -s, --secret [secret]        session secret (random)
-    -b, --database [db]          local database name (name)
+    -h, --help                  output usage information
+    -V, --version               output the version number
+    -d, --directory [directory]  Application directory [name]
+    -s, --secret [secret]        Session secret [uuid.v4()]
+    -b, --database [db]          Local database path ['localhost/' + name]
 ```
 
 ### Usage
@@ -57,8 +59,8 @@ Building...
 Node MESS Application generated with:
 name:      myapp
 directory: myapp
-secret:    4B1zTDRv
-db:        myapp
+secret:    445e18e0-1362-422b-84e2-06cc7e0a5701
+db:        localhost/myapp
 ```
 
 ```
@@ -110,7 +112,7 @@ myapp/
 ```
 
 ### Visual
-[![install](http://i.j2.io/7KUL.png)](http://i.j2.io/7KUL.png)
+[![install](http://i.j2.io/30OP.png)](http://i.j2.io/30OP.png)
 [![initial](http://i.j2.io/FX1K.png)](http://i.j2.io/FX1K.png)
 
 ### Deployment
@@ -213,5 +215,4 @@ __name__/                   // d.f. all application files
 - Dynamically add database models and controllers
 - Specify packages to include
 - Specify development paradigm
-- gulpify scripts
 - Locally cached versions of nmess
