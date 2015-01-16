@@ -22,7 +22,7 @@
   "author": "synchronous",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.5.1",
+    "commander": "^2.6.0",
     "download": "^1.0.7",
     "replace": "^0.2.10",
     "uuid": "^2.0.1"
