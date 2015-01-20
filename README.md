@@ -29,12 +29,16 @@ The actual skeleton code may be found at https://github.com/edge/nmess.
 * [Todo](#todo)
 
 ## Installation
-`sudo npm install -g nmess`
+```sh
+sudo npm install -g nmess
+```
 
 ## Generator
 
 ### Help
-`nmess -h`
+```sh
+nmess -h
+```
 
 ```
   Usage: nmess [options] <name>
@@ -49,7 +53,9 @@ The actual skeleton code may be found at https://github.com/edge/nmess.
 ```
 
 ### Usage
-`nmess myapp`
+```sh
+nmess myapp
+```
 
 ```
 Downloading...
@@ -117,9 +123,13 @@ myapp/
 
 ### Deployment
 #### Production
-`cd ./myapp && npm start`
+```sh
+cd ./myapp && npm start
+```
 #### Development
-`cd ./myapp && npm run dev`
+```sh
+cd ./myapp && npm run dev
+```
 
 ### Dependencies
 #### Production
@@ -158,56 +168,56 @@ mongodb
 
 ### Documentation
 ```
-d.f. - directory for
-m.f. - module for
+d: - directory for
+m: - module for
 ```
 
 ```
-__name__/                   // d.f. all application files
-    bin/                    // d.f. executable scripts
+__name__/                   // d: all application files
+    bin/                    // d: executable scripts
         www                 // server start script
-    client/                 // d.f. client assets
-        css/                // d.f. stylesheets
-            error.styl      // error page stylesheet
+    client/                 // d: client assets
+        css/                // d: stylesheets
             __name__.styl   // main stylesheet
-        js/                 // d.f. client scripts
+            error.styl      // error page stylesheet
+        js/                 // d: client scripts
             index.js        // index page script
-        tpl/                // d.f. client MVC templates
+        tpl/                // d: client MVC templates
             fragment.jade   // MVC template, rename to a specific client control
-    db/                     // d.f. database design
-        control.js          // m.f. database business logic
-        init.js             // m.f. database connection
-        model.js            // m.f. database model definitions
-    public/                 // d.f. client-accessible resources
-        css/                // d.f. files compiled from client/css/
+    db/                     // d: database design
+        control.js          // m: database business logic
+        init.js             // m: database connection
+        model.js            // m: database model definitions
+    public/                 // d: client-accessible resources
+        css/                // d: files compiled from client/css/
             error.css       // compiled from client/css/error.styl
             __name__.css    // compiled from client/css/__name__.styl
-        font/               // d.f. client fonts
+        font/               // d: client fonts
             OpenSans.ttf    // Open Sans font
-        js/                 // d.f. client scripts
+        js/                 // d: client scripts
             index.js        // compiled from client/js/index.js
             jquery.js       // jQuery 1.11.1, minified
             socket.js       // Socket.IO 1.2.0, minified
             templates.js    // compiled from all templates in client/tpl
         favicon.ico         // n.js tab icon
         robots.txt          // robots.txt
-    routes/                 // d.f. server routes
-        api.js              // m.f. api route
-        index.js            // m.f. index route
-    utils/                  // d.f. server utilities
+    routes/                 // d: server routes
+        api.js              // m: api route
+        index.js            // m: index route
+    util/                   // d: server utilities
         httpres.json        // HTTP response code list
-    views/                  // d.f. page templates
+    views/                  // d: page templates
         base.jade           // base template
         error.jade          // error page template
         index.jade          // index page template
     .gitignore              // .gitignore
-    app.js                  // m.f. main application interface
+    app.js                  // m: main application interface
     config.json             // application configuration
-    gulpfile.js             // m.f. gulp build system
+    gulpfile.js             // m: gulp build system
     nodemon.json            // nodemon server configuration
     package.json            // package configuration
     README.md               // application README
-    router.js               // m.f. server route coordination
+    router.js               // m: server route coordination
 ```
 
 ### Todo
