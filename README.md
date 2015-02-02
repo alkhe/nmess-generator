@@ -5,11 +5,11 @@
 [![downloads](http://img.shields.io/npm/dm/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
 [![license](http://img.shields.io/npm/l/nmess.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
-`nmess` is a modern and developer-friendly skeleton application generator that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language. It is designed so that the developer can immediately start being productive, instead of writing preparation code and build systems for every new project. The MESS stack can easily be extended into the MEAN stack, by including Angular files into a generated application.
+`nmess` is a modern and developer-friendly skeleton application generator that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language. It is designed so that the developer can immediately start being productive, instead of writing preparation code and build systems for every new project. `nmess` now includes Bootstrap 3 by default and automatically extends the project into the MEAN stack, integrating Angular into the application.
 
 The generator prepares various server utilities and components such as a configurable REST API, Socket.IO connection, database controllers, gulp build system, and HTTP response codes, and organizes source files in an extensible and logical manner.
 
-The included gulp build system automatically builds client assets such as .styl sheets and Jade MVC templates. Using a build system instead of middleware for client assets improves reliability and response time for all requests.
+The included gulp build system automatically builds client assets such as .styl sheets and Javascripts. Using a build system instead of middleware for client assets improves reliability and response time for all requests.
 
 `nmess` is great for single page applications, hybrid servers, web services, and API endpoints.
 
