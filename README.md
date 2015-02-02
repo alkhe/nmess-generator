@@ -11,7 +11,7 @@ The generator prepares various server utilities and components such as a configu
 
 The included gulp build system automatically builds client assets such as .styl sheets and Jade MVC templates. Using a build system instead of middleware for client assets improves reliability and response time for all requests.
 
-`nmess` is great for single page applications, hybrid servers, and web services.
+`nmess` is great for single page applications, hybrid servers, web services, and API endpoints.
 
 The actual skeleton code may be found at https://github.com/edge/nmess.
 
@@ -79,23 +79,23 @@ myapp/
             myapp.styl
         js/
             index.js
-        tpl/
-            fragment.jade
     db/
         control.js
         init.js
         model.js
     public/
         css/
+            bootstrap.css
             error.css
             myapp.css
         font/
             OpenSans.ttf
         js/
+            angular.js
+            bootstrap.js
             index.js
             jquery.js
-            socket.js
-            templates.js
+            socket.io.js
         favicon.ico
         robots.txt
     routes/
@@ -152,7 +152,6 @@ gulp-stylus
 gulp-uglify
 gulp-watch
 lazypipe
-templatizer
 ```
 #### Global
 These modules are required to run the application in development mode.
@@ -182,22 +181,23 @@ __name__/                   // d: all application files
             error.styl      // error page stylesheet
         js/                 // d: client scripts
             index.js        // index page script
-        tpl/                // d: client MVC templates
-            fragment.jade   // MVC template, rename to a specific client control
     db/                     // d: database design
         control.js          // m: database business logic
         init.js             // m: database connection
         model.js            // m: database model definitions
     public/                 // d: client-accessible resources
         css/                // d: files compiled from client/css/
+            bootstrap.css   // Bootstrap 3.3.2, minified
             error.css       // compiled from client/css/error.styl
             __name__.css    // compiled from client/css/__name__.styl
         font/               // d: client fonts
             OpenSans.ttf    // Open Sans font
         js/                 // d: client scripts
+            angular.js      // Angular 1.3.11, minified
+            bootstrap.js    // Bootstrap 3.3.2, minified
             index.js        // compiled from client/js/index.js
-            jquery.js       // jQuery 1.11.1, minified
-            socket.js       // Socket.IO 1.2.0, minified
+            jquery.js       // jQuery 1.11.2, minified
+            socket.js       // Socket.IO 1.3.2, minified
             templates.js    // compiled from all templates in client/tpl
         favicon.ico         // n.js tab icon
         robots.txt          // robots.txt
