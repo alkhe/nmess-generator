@@ -13,6 +13,8 @@ The included gulp build system automatically builds client assets such as .styl 
 
 `nmess` is great for single page applications, hybrid servers, web services, and API endpoints.
 
+**`nmess` now provides automatic local caching by SHA-comparison and source management, so a fully functional environment can be set up while offline, and generation while online is expedited as well.**
+
 The actual skeleton code may be found at https://github.com/edge/nmess.
 
 `nmess` was inspired by and intends to replace `express-generator` and `node-boilerplate`, both projects with great initiatives but undermaintained.

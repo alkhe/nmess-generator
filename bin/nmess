@@ -32,12 +32,43 @@ options.directory = path.join(path.dirname(rawname), cli.directory || options.na
 options.secret = cli.secret || uuid.v4();
 options.database = cli.database || 'localhost/' + options.name;
 
+var die = function(err) {
+	console.log('Error: ' + JSON.stringify(err, null, 4));
+};
+
 var download = function() {
 	console.log('Downloading...');
 	(new down()).get('https://github.com/edge/nmess/archive/master.zip', cachedir, {
 		extract: true,
 		strip: 1
-	}).run(populate);
+	}).run(function(err) {
+		if (err) {
+			die(arguments);
+		}
+		else {
+			install(true);
+		}
+	});
+};
+
+var install = function(online) {
+
+	if (online) {
+		console.log('Installing...');
+
+		exec('cd ' + cachedir + ' && npm install', function(err) {
+			if (err) {
+				die(arguments);
+			}
+			else {
+				populate();
+			}
+		});
+	}
+	else {
+		populate();
+	}
+
 };
 
 var populate = function() {
@@ -47,12 +78,12 @@ var populate = function() {
 	fs.mkdirp(options.directory, function(err) {
 
 		if (err) {
-			console.log('Error: ' + JSON.stringify(arguments, null, 4));
+			die(arguments);
 		}
 		else {
 			fs.copy(cachedir, options.directory, function(err) {
 				if (err) {
-					console.log('Error: ' + JSON.stringify(arguments, null, 4));
+					die(arguments);
 				}
 				else {
 					var renameRecursive = function(dir, find, replacewith) {
@@ -73,7 +104,8 @@ var populate = function() {
 							replace({
 								regex: find,
 								replacement: replacewith,
-							paths: [options.directory],
+								paths: [options.directory],
+								exclude: 'node_modules',
 								recursive: true,
 								silent: true
 							});
@@ -83,26 +115,11 @@ var populate = function() {
 					populateTemplates(/__secret__/g, options.secret);
 					populateTemplates(/__db__/g, options.database);
 
-					install();
+					build();
 				}
 			});
 		}
 
-	});
-
-};
-
-var install = function() {
-
-	console.log('Installing...');
-
-	exec('cd ' + options.directory + ' && npm install', function(err) {
-		if (err) {
-			console.log('Error: ' + JSON.stringify(arguments, null, 4));
-		}
-		else {
-			build();
-		}
 	});
 
 };
@@ -113,7 +130,7 @@ var build = function() {
 
 	exec('cd ' + options.directory + ' && gulp compile', function(err) {
 		if (err) {
-			console.log('Error: ' + JSON.stringify(arguments, null, 4));
+			die(arguments);
 		}
 		else {
 			console.log('Node MESS Application generated with:')
@@ -132,14 +149,18 @@ var lastcommit = fs.readFileSync(cachecommit),
 	newcommit;
 
 github.client().repo('edge/nmess').commits(function(err, commits) {
-	if (err) {
-		console.log('Error: ' + JSON.stringify(arguments, null, 4));
+	if (err && err.code !== 'ENOTFOUND') {
+		die(arguments);
+	}
+	else if (err && err.code === 'ENOTFOUND') {
+		console.log('No internet connection, using cached skeleton.');
+		install(false);
 	}
 	else {
 		newcommit = commits[0].sha;
 		if (newcommit == lastcommit) {
 			console.log('Up-to-date skeleton found in cache.');
-			populate();
+			install(true);
 		}
 		else {
 			download();
