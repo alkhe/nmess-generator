@@ -221,8 +221,6 @@ __name__/                   // d: all application files
 ```
 
 ### Todo
-- Specify MVC frameworks
 - Dynamically add database models and controllers
-- Specify packages to include
-- Specify development paradigm
-- Locally cached versions of nmess
+- Specify CSS preprocessor
+- Clean up Gulpfile
