@@ -18,8 +18,9 @@ cli
 	.option('-b, --database [db]', 'Local database path [\'localhost/\' + name]')
 	.parse(process.argv);
 
-var cachedir = 'cache',
-	cachecommit = 'lastcommit';
+var localdir = path.resolve(path.join(__dirname, '..')),
+	cachedir = path.join(localdir, 'cache'),
+	cachecommit = path.join(localdir, 'lastcommit');
 
 var rawname = cli.args[0].replace(/\/$/, ''),
 	options = {
@@ -92,10 +93,12 @@ var populate = function() {
 								replacecurrent;
 							for (var i = 0; i < children.length; i++) {
 								current = path.join(dir, children[i]);
-								replacecurrent = current.replace(find, replacewith);
-								fs.renameSync(current, replacecurrent);
-								if (fs.statSync(replacecurrent).isDirectory()) {
-									renameRecursive(replacecurrent, find, replacewith);
+								if (children[i] != 'node_modules') {
+									replacecurrent = current.replace(find, replacewith);
+									fs.renameSync(current, replacecurrent);
+									if (fs.statSync(replacecurrent).isDirectory()) {
+										renameRecursive(replacecurrent, find, replacewith);
+									}
 								}
 							}
 						},
