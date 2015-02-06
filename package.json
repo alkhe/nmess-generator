@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "./bin/nmess myapp",
-    "clean": "rm -rf myapp cache lastcommit"
+    "clean": "rm -rf myapp"
   },
   "keywords": [
     "mess",

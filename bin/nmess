@@ -18,9 +18,9 @@ cli
 	.option('-b, --database [db]', 'Local database path [\'localhost/\' + name]')
 	.parse(process.argv);
 
-var localdir = path.resolve(path.join(__dirname, '..')),
-	cachedir = path.join(localdir, 'cache'),
-	cachecommit = path.join(localdir, 'lastcommit');
+var cacheroot = path.resolve(path.join(process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE, '.nmess')),
+	cachedir = path.join(cacheroot, 'cache'),
+	cachecommit = path.join(cacheroot, 'lastcommit');
 
 var rawname = cli.args[0].replace(/\/$/, ''),
 	options = {
