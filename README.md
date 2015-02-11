@@ -5,17 +5,19 @@
 [![downloads](http://img.shields.io/npm/dm/nmess.svg?style=flat-square)](https://npmjs.org/package/nmess)
 [![license](http://img.shields.io/npm/l/nmess.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
-`nmess` is a modern and developer-friendly skeleton application generator that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language. It is designed so that the developer can immediately start being productive, instead of writing preparation code and build systems for every new project. `nmess` now includes Bootstrap 3 by default and automatically extends the project into the MEAN stack, integrating Angular into the application.
+`nmess` is a modern and developer-friendly skeleton application generator that implements the MESS stack: MongoDB, Express.js, Socket.IO, and Stylus, which uses Jade as the templating language. It is designed so that the developer can immediately start being productive, instead of writing boilerplate preparation code and build systems for every new project. `nmess` now includes Bootstrap 3 by default and automatically extends the project into the MEAN stack, integrating Angular into the application.
 
 The generator prepares various server utilities and components such as a configurable REST API, Socket.IO connection, database controllers, gulp build system, and HTTP response codes, and organizes source files in an extensible and logical manner.
 
-The included gulp build system automatically builds client assets such as .styl sheets and Javascripts. Using a build system instead of middleware for client assets improves reliability and response time for all requests.
+The included gulp build system automatically optimizes and minifies client assets such as .styl sheets and Javascripts. Using a build system instead of middleware for client assets improves reliability and response time for all requests.
 
-`nmess` is great for single page applications, hybrid servers, web services, and API endpoints.
+`nmess` is great for single page applications, hybrid sites, web services, and API endpoints.
 
 **`nmess` now provides automatic local caching by SHA-comparison and source management, so a fully functional environment can be set up while offline, and generation while online is expedited as well.**
 
 The actual skeleton code may be found at https://github.com/edge/nmess.
+
+**`nmess` is being developed in discord with MEAN.IO. `nmess` quickly prepares all assets that you need to supplement and encourage your design ideas, while MEAN.IO takes a more restrictive CMS approach.**
 
 `nmess` was inspired by and intends to replace `express-generator` and `node-boilerplate`, both projects with great initiatives but undermaintained.
 
@@ -226,3 +228,4 @@ __name__/                   // d: all application files
 - Dynamically add database models and controllers
 - Specify CSS preprocessor
 - Clean up Gulpfile
+- Add 6to5 build
