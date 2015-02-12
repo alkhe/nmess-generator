@@ -16,6 +16,7 @@ cli
 	.option('-d, --directory [directory]', 'Application directory [name]')
 	.option('-s, --secret [secret]', 'Session secret [uuid.v4()]')
 	.option('-b, --database [db]', 'Local database path [\'localhost/\' + name]')
+	.option('-p, --port [port]', 'Server listening port [3000]')
 	.parse(process.argv);
 
 var cacheroot = path.resolve(path.join(process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE, '.nmess')),
@@ -32,6 +33,7 @@ var rawname = cli.args[0].replace(/\/$/, ''),
 options.directory = path.join(path.dirname(rawname), cli.directory || options.name);
 options.secret = cli.secret || uuid.v4();
 options.database = cli.database || 'localhost/' + options.name;
+options.port = cli.port || 3000;
 
 var die = function(err) {
 	console.log('Error: ' + JSON.stringify(err, null, 4));
@@ -117,6 +119,7 @@ var populate = function() {
 					populateTemplates(/__name__/g, options.name);
 					populateTemplates(/__secret__/g, options.secret);
 					populateTemplates(/__db__/g, options.database);
+					populateTemplates(/(?="port": )3000/g, options.port);
 
 					build();
 				}
@@ -141,6 +144,7 @@ var build = function() {
 			console.log('directory: ' + options.directory);
 			console.log('secret:    ' + options.secret);
 			console.log('db:        ' + options.database);
+			console.log('port:      ' + options.port);
 		}
 	});
 };
