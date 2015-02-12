@@ -7,6 +7,7 @@
 
 ## In a Nutshell
 
+```
 What `nmess` does for you:  
     sets up a gulpfile  
         compiles ECMAScript 6 to 5  
@@ -21,6 +22,7 @@ What `nmess` does for you:
         includes Socket.IO  
     prepares a database connection  
     sets up miscellaneous server objects  
+```
 
 ## About
 
