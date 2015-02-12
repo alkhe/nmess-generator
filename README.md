@@ -8,20 +8,20 @@
 ## In a Nutshell
 
 ```
-What `nmess` does for you:  
-    sets up a gulpfile  
-        compiles ECMAScript 6 to 5  
-        uglifies Javascript  
-        compiles Stylus to CSS  
-        uglifies CSS  
-    scaffolds server routing  
-    includes client assets  
-        includes jQuery  
-        includes Angular  
-        includes Bootstrap  
-        includes Socket.IO  
-    prepares a database connection  
-    sets up miscellaneous server objects  
+What `nmess` does for you:
+    sets up a gulpfile that:
+        compiles ECMAScript 6 to 5
+        uglifies Javascript
+        compiles Stylus to CSS
+        uglifies CSS
+    scaffolds server routing
+    includes client assets such as:
+        jQuery
+        Angular
+        Bootstrap
+        Socket.IO
+    prepares a database connection
+    sets up miscellaneous server objects
 ```
 
 ## About

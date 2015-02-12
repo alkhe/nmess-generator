@@ -119,7 +119,7 @@ var populate = function() {
 					populateTemplates(/__name__/g, options.name);
 					populateTemplates(/__secret__/g, options.secret);
 					populateTemplates(/__db__/g, options.database);
-					populateTemplates(/(?="port": )3000/g, options.port);
+					populateTemplates(/(?<="port": )3000/g, options.port);
 
 					build();
 				}
