@@ -1,6 +1,6 @@
 {
   "name": "nmess",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "An intuitive and elegant boilerplate for the Node.js MESS webstack.",
   "main": "./bin/nmess",
   "preferGlobal": true,
