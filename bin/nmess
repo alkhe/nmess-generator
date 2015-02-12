@@ -8,6 +8,7 @@ var cli = require('commander'),
 	path = require('path'),
 	pkg = require('../package'),
 	exec = require('child_process').exec,
+	spawn = require('child_process').spawn,
 	github = require('octonode');
 
 cli
@@ -16,163 +17,190 @@ cli
 	.option('-d, --directory [directory]', 'Application directory [name]')
 	.option('-s, --secret [secret]', 'Session secret [uuid.v4()]')
 	.option('-b, --database [db]', 'Local database path [\'localhost/\' + name]')
-	.option('-p, --port [port]', 'Server listening port [3000]')
-	.parse(process.argv);
+	.option('-p, --port [port]', 'Server listening port [3000]');
 
-var cacheroot = path.resolve(path.join(process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE, '.nmess')),
-	cachedir = path.join(cacheroot, 'cache'),
-	cachecommit = path.join(cacheroot, 'lastcommit');
+cli
+	.command('new <application>')
+	.description('create new application')
+	.action(function(name) {
 
-var rawname = cli.args[0].replace(/\/$/, ''),
-	options = {
-		name: path.basename(rawname) || (function() {
-			throw new Error('Name not specified.')
-		})()
-	};
+		var cacheroot = path.resolve(path.join(process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE, '.nmess')),
+			cachedir = path.join(cacheroot, 'cache'),
+			cachecommit = path.join(cacheroot, 'lastcommit');
 
-options.directory = path.join(path.dirname(rawname), cli.directory || options.name);
-options.secret = cli.secret || uuid.v4();
-options.database = cli.database || 'localhost/' + options.name;
-options.port = cli.port || 3000;
+		var rawname = name.replace(/\/$/, ''),
+			options = {
+				name: path.basename(rawname) || (function() {
+					throw new Error('Name not specified.')
+				})()
+			};
 
-var die = function(err) {
-	console.log('Error: ' + JSON.stringify(err, null, 4));
-};
+		options.directory = path.join(path.dirname(rawname), cli.directory || options.name);
+		options.secret = cli.secret || uuid.v4();
+		options.database = cli.database || 'localhost/' + options.name;
+		options.port = cli.port || 3000;
 
-var download = function() {
-	console.log('Downloading...');
-	(new down()).get('https://github.com/edge/nmess/archive/master.zip', cachedir, {
-		extract: true,
-		strip: 1
-	}).run(function(err) {
-		if (err) {
-			die(arguments);
-		}
-		else {
-			install(true);
-		}
-	});
-};
+		var die = function(err) {
+			console.log('Error: ' + JSON.stringify(err, null, 4));
+		};
 
-var install = function(online) {
-
-	if (online) {
-		console.log('Installing...');
-
-		exec('cd ' + cachedir + ' && npm install', function(err) {
-			if (err) {
-				die(arguments);
-			}
-			else {
-				populate();
-			}
-		});
-	}
-	else {
-		populate();
-	}
-
-};
-
-var populate = function() {
-
-	console.log('Populating...');
-
-	fs.mkdirp(options.directory, function(err) {
-
-		if (err) {
-			die(arguments);
-		}
-		else {
-			fs.copy(cachedir, options.directory, function(err) {
+		var download = function() {
+			console.log('Downloading...');
+			(new down()).get('https://github.com/edge/nmess/archive/master.zip', cachedir, {
+				extract: true,
+				strip: 1
+			}).run(function(err) {
 				if (err) {
 					die(arguments);
 				}
 				else {
-					var renameRecursive = function(dir, find, replacewith) {
-							var children = fs.readdirSync(dir),
-								current,
-								replacecurrent;
-							for (var i = 0; i < children.length; i++) {
-								current = path.join(dir, children[i]);
-								if (children[i] != 'node_modules') {
-									replacecurrent = current.replace(find, replacewith);
-									fs.renameSync(current, replacecurrent);
-									if (fs.statSync(replacecurrent).isDirectory()) {
-										renameRecursive(replacecurrent, find, replacewith);
-									}
-								}
-							}
-						},
-						populateTemplates = function(find, replacewith) {
-							renameRecursive(options.directory, find, replacewith);
-							replace({
-								regex: find,
-								replacement: replacewith,
-								paths: [options.directory],
-								exclude: 'node_modules',
-								recursive: true,
-								silent: true
-							});
-						};
-
-					populateTemplates(/__name__/g, options.name);
-					populateTemplates(/__secret__/g, options.secret);
-					populateTemplates(/__db__/g, options.database);
-					populateTemplates(/"port": 3000/g, '"port": ' + options.port);
-
-					build();
+					install(true);
 				}
 			});
-		}
+		};
+
+		var install = function(online) {
+
+			if (online) {
+				console.log('Installing...');
+
+				exec('cd ' + cachedir + ' && npm install', function(err) {
+					if (err) {
+						die(arguments);
+					}
+					else {
+						populate();
+					}
+				});
+			}
+			else {
+				populate();
+			}
+
+		};
+
+		var populate = function() {
+
+			console.log('Populating...');
+
+			fs.mkdirp(options.directory, function(err) {
+
+				if (err) {
+					die(arguments);
+				}
+				else {
+					fs.copy(cachedir, options.directory, function(err) {
+						if (err) {
+							die(arguments);
+						}
+						else {
+							var renameRecursive = function(dir, find, replacewith) {
+									var children = fs.readdirSync(dir),
+										current,
+										replacecurrent;
+									for (var i = 0; i < children.length; i++) {
+										current = path.join(dir, children[i]);
+										if (children[i] != 'node_modules') {
+											replacecurrent = current.replace(find, replacewith);
+											fs.renameSync(current, replacecurrent);
+											if (fs.statSync(replacecurrent).isDirectory()) {
+												renameRecursive(replacecurrent, find, replacewith);
+											}
+										}
+									}
+								},
+								populateTemplates = function(find, replacewith) {
+									renameRecursive(options.directory, find, replacewith);
+									replace({
+										regex: find,
+										replacement: replacewith,
+										paths: [options.directory],
+										exclude: 'node_modules',
+										recursive: true,
+										silent: true
+									});
+								};
+
+
+							populateTemplates(/__name__/g, options.name);
+							populateTemplates(/__secret__/g, options.secret);
+							populateTemplates(/__db__/g, options.database);
+							populateTemplates(/"port": 3000/g, '"port": ' + options.port);
+
+							build();
+						}
+					});
+				}
+
+			});
+
+		};
+
+		var build = function() {
+
+			console.log('Building...');
+
+			exec('cd ' + options.directory + ' && gulp compile --silent', function(err) {
+				if (err) {
+					die(arguments);
+				}
+				else {
+					console.log('Node MESS Application generated with:')
+					console.log('name:      ' + options.name);
+					console.log('directory: ' + options.directory);
+					console.log('secret:    ' + options.secret);
+					console.log('db:        ' + options.database);
+					console.log('port:      ' + options.port);
+				}
+			});
+		};
+
+		fs.ensureFileSync(cachecommit);
+		fs.ensureDirSync(cachedir);
+
+		var lastcommit = fs.readFileSync(cachecommit),
+			newcommit;
+
+		github.client().repo('edge/nmess').commits(function(err, commits) {
+			if (err && err.code !== 'ENOTFOUND') {
+				die(arguments);
+			}
+			else if (err && err.code === 'ENOTFOUND') {
+				console.log('No internet connection, using cached skeleton.');
+				install(false);
+			}
+			else {
+				newcommit = commits[0].sha;
+				if (newcommit == lastcommit) {
+					console.log('Up-to-date skeleton found in cache.');
+					install(true);
+				}
+				else {
+					download();
+					fs.writeFileSync(cachecommit, newcommit);
+					console.log('Cache updated with new skeleton.');
+				}
+			}
+		});
 
 	});
 
-};
-
-var build = function() {
-
-	console.log('Building...');
-
-	exec('cd ' + options.directory + ' && gulp compile', function(err) {
-		if (err) {
-			die(arguments);
-		}
-		else {
-			console.log('Node MESS Application generated with:')
-			console.log('name:      ' + options.name);
-			console.log('directory: ' + options.directory);
-			console.log('secret:    ' + options.secret);
-			console.log('db:        ' + options.database);
-			console.log('port:      ' + options.port);
-		}
+cli
+	.command('dev')
+	.description('run application in development mode')
+	.action(function() {
+		var child = spawn('npm', ['run', 'dev'], {
+			stdio: 'inherit'
+		});
 	});
-};
 
-fs.ensureFileSync(cachecommit);
-fs.ensureDirSync(cachedir);
+cli
+	.command('pro')
+	.description('run application in production mode')
+	.action(function() {
+		var child = spawn('npm', ['start'], {
+			stdio: 'inherit'
+		});
+	});
 
-var lastcommit = fs.readFileSync(cachecommit),
-	newcommit;
-
-github.client().repo('edge/nmess').commits(function(err, commits) {
-	if (err && err.code !== 'ENOTFOUND') {
-		die(arguments);
-	}
-	else if (err && err.code === 'ENOTFOUND') {
-		console.log('No internet connection, using cached skeleton.');
-		install(false);
-	}
-	else {
-		newcommit = commits[0].sha;
-		if (newcommit == lastcommit) {
-			console.log('Up-to-date skeleton found in cache.');
-			install(true);
-		}
-		else {
-			download();
-			fs.writeFileSync(cachecommit, newcommit);
-			console.log('Cache updated with new skeleton.');
-		}
-	}
-});
+cli.parse(process.argv);

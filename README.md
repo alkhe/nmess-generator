@@ -68,6 +68,13 @@ nmess -h
 ```
   Usage: nmess [options] <name>
 
+
+  Commands:
+
+    new <application>  create new application
+    dev                run application in development mode
+    pro                run application in production mode
+
   Options:
 
     -h, --help                   output usage information
@@ -75,23 +82,26 @@ nmess -h
     -d, --directory [directory]  Application directory [name]
     -s, --secret [secret]        Session secret [uuid.v4()]
     -b, --database [db]          Local database path ['localhost/' + name]
+    -p, --port [port]            Server listening port [3000]
+
 ```
 
 ### Usage
 ```sh
-nmess myapp
+nmess new myapp
 ```
 
 ```
-Downloading...
-Populating...
+Up-to-date skeleton found in cache.
 Installing...
+Populating...
 Building...
 Node MESS Application generated with:
 name:      myapp
 directory: myapp
-secret:    445e18e0-1362-422b-84e2-06cc7e0a5701
+secret:    cd1b725d-8c41-4d30-a736-105db3cf8a14
 db:        localhost/myapp
+port:      3000
 ```
 
 ```
@@ -104,6 +114,7 @@ myapp/
             myapp.styl
         js/
             index.js
+            myappApp.js
     db/
         control.js
         init.js
@@ -113,15 +124,25 @@ myapp/
             bootstrap.css
             error.css
             myapp.css
-        font/
+        fonts/
+            glyphicons-halflings-regular.eot
+            glyphicons-halflings-regular.ttf
+            glyphicons-halflings-regular.woff2
+            glyphicons-halflings-regular.svg
+            glyphicons-halflings-regular.woff
             OpenSans.ttf
+        img/
+            favicon.ico
         js/
+            angular.js
+            angular-animate.js
+            angular-route.js
             angular.js
             bootstrap.js
             index.js
             jquery.js
+            myappApp.js
             socket.io.js
-        favicon.ico
         robots.txt
     routes/
         api.js
@@ -149,11 +170,11 @@ myapp/
 ### Deployment
 #### Production
 ```sh
-cd ./myapp && npm start
+cd ./myapp && nmess pro
 ```
 #### Development
 ```sh
-cd ./myapp && npm run dev
+cd ./myapp && nmess dev
 ```
 
 ### Dependencies
