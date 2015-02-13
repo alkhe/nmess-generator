@@ -11,6 +11,10 @@ var cli = require('commander'),
 	spawn = require('child_process').spawn,
 	github = require('octonode');
 
+var die = function(err) {
+	console.log('Error: ' + JSON.stringify(err, null, 4));
+};
+
 cli
 	.version(pkg.version)
 	.usage('[options] <name>')
@@ -29,20 +33,15 @@ cli
 			cachecommit = path.join(cacheroot, 'lastcommit');
 
 		var rawname = name.replace(/\/$/, ''),
-			options = {
-				name: path.basename(rawname) || (function() {
-					throw new Error('Name not specified.')
-				})()
-			};
+			options = {};
 
+		options.name = path.basename(rawname) || (function() {
+			throw new Error('Name not specified.')
+		})();
 		options.directory = path.join(path.dirname(rawname), cli.directory || options.name);
 		options.secret = cli.secret || uuid.v4();
 		options.database = cli.database || 'localhost/' + options.name;
 		options.port = cli.port || 3000;
-
-		var die = function(err) {
-			console.log('Error: ' + JSON.stringify(err, null, 4));
-		};
 
 		var download = function() {
 			console.log('Downloading...');
@@ -106,6 +105,9 @@ cli
 											if (fs.statSync(replacecurrent).isDirectory()) {
 												renameRecursive(replacecurrent, find, replacewith);
 											}
+										}
+										else {
+											console.log('w');
 										}
 									}
 								},
