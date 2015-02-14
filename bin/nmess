@@ -3,7 +3,6 @@
 var cli = require('commander'),
 	uuid = require('uuid'),
 	down = require('download'),
-	replace = require('replace'),
 	fs = require('fs-extra'),
 	path = require('path'),
 	pkg = require('../package'),
@@ -36,7 +35,7 @@ cli
 			options = {};
 
 		options.name = path.basename(rawname) || (function() {
-			throw new Error('Name not specified.')
+			throw new Error('Name not specified.');
 		})();
 		options.directory = path.join(path.dirname(rawname), cli.directory || options.name);
 		options.secret = cli.secret || uuid.v4();
@@ -82,8 +81,7 @@ cli
 
 			console.log('Populating...');
 
-			fs.mkdirp(options.directory, function(err) {
-
+			fs.ensureDir(options.directory, function(err) {
 				if (err) {
 					die(arguments);
 				}
@@ -105,22 +103,14 @@ cli
 											if (fs.statSync(replacecurrent).isDirectory()) {
 												renameRecursive(replacecurrent, find, replacewith);
 											}
-										}
-										else {
-											console.log('w');
+											else {
+												fs.writeFileSync(replacecurrent, fs.readFileSync(replacecurrent, 'utf8').replace(find, replacewith));
+											}
 										}
 									}
 								},
 								populateTemplates = function(find, replacewith) {
 									renameRecursive(options.directory, find, replacewith);
-									replace({
-										regex: find,
-										replacement: replacewith,
-										paths: [options.directory],
-										exclude: 'node_modules',
-										recursive: true,
-										silent: true
-									});
 								};
 
 
