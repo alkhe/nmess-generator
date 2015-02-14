@@ -218,57 +218,62 @@ m - module for
 ```
 
 ```
-__name__/                       // d - all application files
-    bin/                        // d - executable scripts
-        www                     // server start script
-    client/                     // d - client assets
-        css/                    // d - stylesheets
-            __name__.styl       // main stylesheet
-            error.styl          // error page stylesheet
-        js/                     // d - client scripts
-            __name__App.js      // primary Angular application
-            index.js            // index page script
-    db/                         // d - database design
-        control.js              // m - database business logic
-        init.js                 // m - database connection
-        model.js                // m - database model definitions
-    public/                     // d - client-accessible resources
-        css/                    // d - files compiled from client/css/
-            bootstrap.css       // Bootstrap 3.3.2, minified
-            error.css           // compiled from client/css/error.styl
-            __name__.css        // compiled from client/css/__name__.styl
-        font/                   // d - client fonts
-            OpenSans.ttf        // Open Sans font
-        img/                    // d - image assets
-            favicon.ico         // n.js tab icon
-        js/                     // d - client scripts
-            __name__App.js      // compiled from client/js/__name__App.js
-            angular.js          // Angular 1.3.13, minified
-            angular-animate.js  // Angular Animate, minified
-            angular-route.js    // Angular Route, minified
-            bootstrap.js        // Bootstrap 3.3.2, minified
-            index.js            // compiled from client/js/index.js
-            jquery.js           // jQuery 1.11.2, minified
-            socket.js           // Socket.IO 1.3.3, minified
-            templates.js        // compiled from all templates in client/tpl
-        robots.txt              // robots.txt
-    routes/                     // d - server routes
-        api.js                  // m - api route
-        index.js                // m - index route
-    util/                       // d - server utilities
-        httpres.json            // HTTP response code list
-    views/                      // d - page templates
-        base.jade               // base template
-        error.jade              // error page template
-        index.jade              // index page template
-    .gitignore                  // .gitignore
-    app.js                      // m - main application interface
-    config.json                 // application configuration
-    gulpfile.js                 // m - gulp build system
-    nodemon.json                // nodemon server configuration
-    package.json                // package configuration
-    README.md                   // application README
-    router.js                   // m - server route coordination
+__name__/                                       // d - all application files
+    bin/                                        // d - executable scripts
+        www                                     // server start script
+    client/                                     // d - client assets
+        css/                                    // d - stylesheets
+            __name__.styl                       // main stylesheet
+            error.styl                          // error page stylesheet
+        js/                                     // d - client scripts
+            __name__App.js                      // primary Angular application
+            index.js                            // index page script
+    db/                                         // d - database design
+        control.js                              // m - database business logic
+        init.js                                 // m - database connection
+        model.js                                // m - database model definitions
+    public/                                     // d - client-accessible resources
+        css/                                    // d - files compiled from client/css/
+            bootstrap.css                       // Bootstrap 3.3.2, minified
+            error.css                           // compiled from client/css/error.styl
+            __name__.css                        // compiled from client/css/__name__.styl
+        font/                                   // d - client fonts
+            glyphicons-halflings-regular.eot    // Bootstrap Glyphicons font
+            glyphicons-halflings-regular.ttf    // Bootstrap Glyphicons font
+            glyphicons-halflings-regular.woff2  // Bootstrap Glyphicons font
+            glyphicons-halflings-regular.svg    // Bootstrap Glyphicons font
+            glyphicons-halflings-regular.woff   // Bootstrap Glyphicons font
+            OpenSans.ttf                        // Open Sans font
+        img/                                    // d - image assets
+            favicon.ico                         // n.js tab icon
+        js/                                     // d - client scripts
+            __name__App.js                      // compiled from client/js/__name__App.js
+            angular.js                          // Angular 1.3.13, minified
+            angular-animate.js                  // Angular Animate, minified
+            angular-route.js                    // Angular Route, minified
+            bootstrap.js                        // Bootstrap 3.3.2, minified
+            index.js                            // compiled from client/js/index.js
+            jquery.js                           // jQuery 1.11.2, minified
+            socket.js                           // Socket.IO 1.3.3, minified
+            templates.js                        // compiled from all templates in client/tpl
+        robots.txt                              // robots.txt
+    routes/                                     // d - server routes
+        api.js                                  // m - api route
+        index.js                                // m - index route
+    util/                                       // d - server utilities
+        httpres.json                            // HTTP response code list
+    views/                                      // d - page templates
+        base.jade                               // base template
+        error.jade                              // error page template
+        index.jade                              // index page template
+    .gitignore                                  // .gitignore
+    app.js                                      // m - main application interface
+    config.json                                 // application configuration
+    gulpfile.js                                 // m - gulp build system
+    nodemon.json                                // nodemon server configuration
+    package.json                                // package configuration
+    README.md                                   // application README
+    router.js                                   // m - server route coordination
 ```
 
 ### Todo
