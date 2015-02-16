@@ -16,7 +16,7 @@ var die = function(err) {
 
 cli
 	.version(pkg.version)
-	.usage('[options] <name>')
+	.usage('<command> [options]')
 	.option('-d, --directory [directory]', 'Application directory [name]')
 	.option('-s, --secret [secret]', 'Session secret [uuid.v4()]')
 	.option('-b, --database [db]', 'Local database path [\'localhost/\' + name]')
@@ -81,51 +81,37 @@ cli
 
 			console.log('Populating...');
 
-			fs.ensureDir(options.directory, function(err) {
-				if (err) {
-					die(arguments);
-				}
-				else {
-					fs.copy(cachedir, options.directory, function(err) {
-						if (err) {
-							die(arguments);
+			fs.ensureDirSync(options.directory);
+			fs.copySync(cachedir, options.directory);
+
+			var renameRecursive = function(dir, find, replacewith) {
+					var children = fs.readdirSync(dir),
+						current,
+						replacecurrent;
+					for (var i = 0; i < children.length; i++) {
+						current = path.join(dir, children[i]);
+						if (children[i] != 'node_modules') {
+							replacecurrent = current.replace(find, replacewith);
+							fs.renameSync(current, replacecurrent);
+							if (fs.statSync(replacecurrent).isDirectory()) {
+								renameRecursive(replacecurrent, find, replacewith);
+							}
+							else {
+								fs.writeFileSync(replacecurrent, fs.readFileSync(replacecurrent, 'utf8').replace(find, replacewith));
+							}
 						}
-						else {
-							var renameRecursive = function(dir, find, replacewith) {
-									var children = fs.readdirSync(dir),
-										current,
-										replacecurrent;
-									for (var i = 0; i < children.length; i++) {
-										current = path.join(dir, children[i]);
-										if (children[i] != 'node_modules') {
-											replacecurrent = current.replace(find, replacewith);
-											fs.renameSync(current, replacecurrent);
-											if (fs.statSync(replacecurrent).isDirectory()) {
-												renameRecursive(replacecurrent, find, replacewith);
-											}
-											else {
-												fs.writeFileSync(replacecurrent, fs.readFileSync(replacecurrent, 'utf8').replace(find, replacewith));
-											}
-										}
-									}
-								},
-								populateTemplates = function(find, replacewith) {
-									renameRecursive(options.directory, find, replacewith);
-								};
+					}
+				},
+				populateTemplates = function(find, replacewith) {
+					renameRecursive(options.directory, find, replacewith);
+				};
 
+			populateTemplates(/__name__/g, options.name);
+			populateTemplates(/__secret__/g, options.secret);
+			populateTemplates(/__db__/g, options.database);
+			populateTemplates(/"port": 3000/g, '"port": ' + options.port);
 
-							populateTemplates(/__name__/g, options.name);
-							populateTemplates(/__secret__/g, options.secret);
-							populateTemplates(/__db__/g, options.database);
-							populateTemplates(/"port": 3000/g, '"port": ' + options.port);
-
-							build();
-						}
-					});
-				}
-
-			});
-
+			build();
 		};
 
 		var build = function() {
@@ -195,8 +181,19 @@ cli
 		});
 	});
 
+cli
+	.command('make')
+	.description('compile application assets')
+	.action(function() {
+		var child = spawn('gulp', ['compile'], {
+			stdio: 'inherit'
+		});
+	});
+
 cli.parse(process.argv);
 
-if (!process.argv.slice(2).length) {
+var command = process.argv.slice(2);
+var arg = process.argv.slice(3);
+if (!command.length || !(command == 'dev' || command == 'pro' || command == 'make') && !arg.length) {
 	cli.outputHelp();
 }

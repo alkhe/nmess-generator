@@ -68,7 +68,7 @@ nmess -h
 ```
 
 ```
-  Usage: nmess [options] <name>
+  Usage: nmess <command> [options]
 
 
   Commands:
@@ -76,6 +76,7 @@ nmess -h
     new <application>  create new application
     dev                run application in development mode
     pro                run application in production mode
+    make               compile application assets
 
   Options:
 
@@ -85,7 +86,6 @@ nmess -h
     -s, --secret [secret]        Session secret [uuid.v4()]
     -b, --database [db]          Local database path ['localhost/' + name]
     -p, --port [port]            Server listening port [3000]
-
 ```
 
 ### Usage
@@ -181,7 +181,7 @@ cd ./myapp && nmess dev
 
 ### Dependencies
 #### Production
-These modules are required to run the server.
+These production modules (`npm install --save`) are required to run the server.
 ```
 body-parser
 compression
@@ -193,16 +193,16 @@ morgan
 socket.io
 ```
 #### Development
-These modules are required to compile the templates and stylesheets.
+These development modules (`npm install --save-dev`) are required to compile the templates and stylesheets.
 ```
 gulp
-gulp-6to5
+gulp-babel
 gulp-cached
 gulp-stylus
 gulp-uglify
 ```
 #### Global
-These modules are required to run the application in development mode.
+These global modules (`npm install -g`) are required to run the application in development mode.
 ```
 gulp
 nodemon
@@ -227,6 +227,7 @@ __name__/                                       // d - all application files
         css/                                    // d - stylesheets
             __name__.styl                       // main stylesheet
             error.styl                          // error page stylesheet
+            index.styl                          // index page stylesheet
         js/                                     // d - client scripts
             __name__App.js                      // primary Angular application
             index.js                            // index page script
@@ -237,8 +238,9 @@ __name__/                                       // d - all application files
     public/                                     // d - client-accessible resources
         css/                                    // d - files compiled from client/css/
             bootstrap.css                       // Bootstrap 3.3.2, minified
-            error.css                           // compiled from client/css/error.styl
             __name__.css                        // compiled from client/css/__name__.styl
+            error.css                           // compiled from client/css/error.styl
+            index.css                           // compiled from client/css/index.styl
         font/                                   // d - client fonts
             glyphicons-halflings-regular.eot    // Bootstrap Glyphicons font
             glyphicons-halflings-regular.ttf    // Bootstrap Glyphicons font
@@ -256,8 +258,7 @@ __name__/                                       // d - all application files
             bootstrap.js                        // Bootstrap 3.3.2, minified
             index.js                            // compiled from client/js/index.js
             jquery.js                           // jQuery 1.11.2, minified
-            socket.js                           // Socket.IO 1.3.3, minified
-            templates.js                        // compiled from all templates in client/tpl
+            socket.io.js                        // Socket.IO 1.3.3, minified
         robots.txt                              // robots.txt
     routes/                                     // d - server routes
         api.js                                  // m - api route
