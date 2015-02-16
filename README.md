@@ -9,18 +9,20 @@
 
 ```
 What `nmess` does for you:
+    lays out an Express Node.js server
+    scaffolds server routing
+    prepares a database connection
     sets up a gulpfile that:
         compiles ECMAScript 6 to 5
         uglifies Javascript
         compiles Stylus to CSS
         uglifies CSS
-    scaffolds server routing
     includes client assets such as:
         jQuery
-        Angular
         Bootstrap
+        Angular
         Socket.IO
-    prepares a database connection
+    readies WebSockets
     sets up miscellaneous server objects
 ```
 
