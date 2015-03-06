@@ -237,7 +237,6 @@ __name__/                                       // d - all application files
         model.js                                // m - database model definitions
     public/                                     // d - client-accessible resources
         css/                                    // d - files compiled from client/css/
-            bootstrap.css                       // Bootstrap 3.3.2, minified
             __name__.css                        // compiled from client/css/__name__.styl
             error.css                           // compiled from client/css/error.styl
             index.css                           // compiled from client/css/index.styl
@@ -252,13 +251,13 @@ __name__/                                       // d - all application files
             favicon.ico                         // n.js tab icon
         js/                                     // d - client scripts
             __name__App.js                      // compiled from client/js/__name__App.js
-            angular.js                          // Angular 1.3.13, minified
+            angular.js                          // Angular 1.3.14, minified
             angular-animate.js                  // Angular Animate, minified
             angular-route.js                    // Angular Route, minified
             bootstrap.js                        // Bootstrap 3.3.2, minified
             index.js                            // compiled from client/js/index.js
             jquery.js                           // jQuery 1.11.2, minified
-            socket.io.js                        // Socket.IO 1.3.3, minified
+            socket.io.js                        // Socket.IO 1.3.5, minified
         robots.txt                              // robots.txt
     routes/                                     // d - server routes
         api.js                                  // m - api route
@@ -282,3 +281,4 @@ __name__/                                       // d - all application files
 ### Todo
 - Dynamically add database models and controllers
 - Deepen Angular integration
+- Add sourcemaps to build system

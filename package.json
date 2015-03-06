@@ -1,6 +1,6 @@
 {
   "name": "nmess",
-  "version": "0.10.10",
+  "version": "0.10.11",
   "description": "An intuitive and elegant boilerplate for dynamic Node.js servers.",
   "main": "./bin/nmess",
   "preferGlobal": true,
@@ -30,7 +30,7 @@
   "dependencies": {
     "commander": "^2.6.0",
     "download": "^1.0.7",
-    "fs-extra": "^0.16.3",
+    "fs-extra": "^0.16.4",
     "octonode": "^0.6.15",
     "uuid": "^2.0.1"
   },
