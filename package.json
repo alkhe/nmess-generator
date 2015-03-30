@@ -1,6 +1,6 @@
 {
   "name": "nmess",
-  "version": "0.10.13",
+  "version": "0.10.14",
   "description": "An intuitive and elegant boilerplate for dynamic Node.js servers.",
   "main": "./bin/nmess",
   "preferGlobal": true,
